@@ -1,0 +1,35 @@
+<div>
+  <p-dataView [value]="data">
+    <ng-template pTemplate="header">Your News
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </ng-template>
+    <ng-template let-news pTemplate="gridItem">
+      <div class="grid">
+        <div class="col-12 md-4">
+          <p-card (click)="openNews(news.url)">
+            <div class="news-title">
+              {{news.title}}
+            </div>
+            <div *ngIf="news.image!='None'" class="news-img">
+              <img src="{{news.image}}">
+            </div>
+            <div *ngIf="news.image =='None'" class="news-img">
+              <img src="../../assets/placeholder-image.png">
+            </div>
+          </p-card>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">Hi there!</ng-template>
+  </p-dataView>
+</div>
+
+<hr>
+
+<!-- <div>
+  <ng-template ngFor let-item [ngForOf]="data">
+    <p-card>
+      {{item.title}}
+    </p-card>
+  </ng-template>
+</div> -->
